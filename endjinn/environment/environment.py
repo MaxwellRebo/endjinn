@@ -56,3 +56,6 @@ class Environment(object):
             "action": action,
             "action_params": action_params
         })
+
+    def add_metric(self, metric):
+        self.metrics.append(metric)

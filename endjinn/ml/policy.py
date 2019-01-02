@@ -101,3 +101,31 @@ class FFPolicy(object):
     def single_prediction(self, inp):
         return self.model.predict(inp)[0]
 
+
+class DetPolicy(object):
+    """
+    Class stub for deterministic policy.
+    """
+    def __init__(self):
+        pass
+
+    def set_model_weights(self, weights):
+        raise NotImplementedError()
+
+    def single_prediction(self, inp):
+        raise NotImplementedError()
+
+
+class ProbPolicy(object):
+    """
+    Class stub for probabilistic policy.
+    """
+    def __init__(self):
+        pass
+
+    def set_model_weights(self, weights):
+        raise NotImplementedError()
+
+    def single_prediction(self, inp):
+        raise NotImplementedError()
+

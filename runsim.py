@@ -170,6 +170,9 @@ if __name__ == "__main__":
 
         all_fitnesses = []
 
+        if args.verbose:
+            print "Starting run %i" % i
+
         for solver in solvers:
             all_fitnesses.append(np.zeros(DEFAULT_SOLVER_POPSIZE))
 
@@ -227,7 +230,7 @@ if __name__ == "__main__":
 
                         update_dict = action(agent.state, env.state, action_params)
                         update_dict.apply(agent.state)
-                        env.register_action(n, action, action_params)
+                        env.register_action(n, action_name, action_params)
 
                 env._tick()
 
@@ -246,10 +249,14 @@ if __name__ == "__main__":
                 avg = np.mean(thing)
                 all_fitnesses[f][k] = avg
 
+        best_fitnesses = []
+
         for g, thing in enumerate(all_fitnesses):
             solvers[g].tell(thing)
+            best_fitnesses.append(solvers[g].result()[1])
 
         duration = mt.stop("run")
 
         if args.verbose:
             print "Run %i complete in %f seconds" % (i, duration.seconds)
+            print "Best fitnesses in run:", best_fitnesses

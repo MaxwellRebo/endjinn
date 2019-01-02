@@ -15,6 +15,7 @@ __pycache__/
 local_registry_objects/
 local_registry.json
 endjinnfile.json
+*priv.ipynb
 
 # Distribution / packaging
 .Python

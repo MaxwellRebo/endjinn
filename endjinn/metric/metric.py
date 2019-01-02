@@ -18,7 +18,7 @@ class Metric(object):
         """
 
         :param update_args: Dict of parameters. Schema:
-            action_history: List of dicts corresponding to actions taken by agents in the environment
+            action_history: List of lists of dicts corresponding to actions taken by agents in the environment
             environment_state: Current state of the environment
             meta_vars (Optional): Any meta variables global to the simulation
         :return:
